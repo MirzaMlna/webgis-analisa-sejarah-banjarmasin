@@ -1,0 +1,15 @@
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.min.css";
+@import "bootstrap";
+
+* {
+    font-family: "poppins", sans-serif;
+}
+
+.bekantan-bg {
+    background-image: url(../../public/images/bekantan_bg.webp);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
