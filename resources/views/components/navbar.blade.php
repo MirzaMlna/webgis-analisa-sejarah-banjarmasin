@@ -11,13 +11,13 @@
                     <a class="nav-link" aria-current="page" href="home">Gis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="users">Data User</a>
+                    <a class="nav-link" aria-current="page" href="users">Data Pengguna</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="marks">Data Penanda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="#">Log Out</a>
+                    <a class="nav-link text-danger" href="#">Keluar</a>
                 </li>
             </ul>
         </div>

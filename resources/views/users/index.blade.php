@@ -4,9 +4,16 @@
     <x-slot:title>{{ $title }}</x-slot:title>
 
     <div class="px-5 pt-3">
+        {{-- Alert --}}
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        {{-- Alert --}}
         <div class="d-flex justify-content-end mb-3">
             <a href="users/create">
-                <div class="btn btn-primary"> <i class="bi bi-plus-circle"></i> Tambah Data</div>
+                <div class="btn btn-success"> <i class="bi bi-plus-circle"></i> Tambah Data</div>
             </a>
         </div>
         <table class="table table-striped table-hover text-start">
@@ -28,7 +35,7 @@
                         <td>{{ $user['name'] }}</td>
                         <td>{{ $user['email'] }}</td>
                         <td>{{ $user['level'] }}</td>
-                        <td>{{ $user['created_at']->format('d-m-Y') }}</td>
+                        <td>{{ $user['created_at']->format('D, d/m/Y') }}</td>
                         <td class="text-center">
 
                             {{-- User Edit Button --}}

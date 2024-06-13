@@ -18,13 +18,7 @@
 
 <body>
     <div class="row d-flex justify-content-center">
-        {{-- Alert --}}
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-        {{-- Alert --}}
+
         <div class="col-md-6">
             <div class="fs-3 mb-3 mt-3">
                 <span><a class="text-secondary" onclick="history.back();">
