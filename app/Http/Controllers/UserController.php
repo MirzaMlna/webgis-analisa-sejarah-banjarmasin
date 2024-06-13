@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users/index', [
+        return view('users.index', [
             'title' => 'Data Pengguna',
             'users' => User::all()
         ]);
@@ -41,10 +41,6 @@ class UserController extends Controller
             'password' => 'required',
             'level' => 'required|string',
         ]);
-
-        // Supaya auto increment selalu berurutan
-        $maxId = User::max('id');
-        $newId = $maxId ? $maxId + 1 : 1;
 
         User::create([
             'name' => $request->name,
@@ -87,11 +83,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        // Supaya auto increment selalu berurutan
-        DB::statement('ALTER TABLE users AUTO_INCREMENT = 1');
-        DB::statement('SET @count = 0');
-        DB::statement('UPDATE users SET id = @count:= @count + 1');
-        DB::statement('ALTER TABLE users AUTO_INCREMENT = 1');
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
 }

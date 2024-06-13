@@ -1,29 +1,15 @@
 <?php
 
-use App\Http\Controllers\UserController;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('login', function () {
-    return view('login/index');
-});
-
-Route::get('home', function () {
-    return view('home/index', [
-        'title' => 'Sistem Informasi Geografi'
-    ]);
-});
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MarkController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
-Route::get('marks_data', function () {
-    return view('marks/index', [
-        'title' => 'Data Penanda'
-    ]);
-});
-
-
+Route::get('/', [DashboardController::class, 'index']);
+Route::resource('login', LoginController::class);
+Route::resource('home', HomeController::class);
 Route::resource('users', UserController::class);
+Route::resource('marks', MarkController::class);
