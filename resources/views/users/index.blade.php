@@ -30,10 +30,18 @@
                         <td>{{ $user['level'] }}</td>
                         <td>{{ $user['created_at']->format('d-m-Y') }}</td>
                         <td class="text-center">
-                            <div class="btn btn-sm btn-warning me-2">
-                                <span><i class="bi bi-pencil"></i></span> Ubah
-                            </div>
-                            <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+
+                            {{-- User Edit Button --}}
+                            <form action="{{ route('users.edit', $user->id) }}" method="get"
+                                style="display:inline-block;">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-warning me-2">
+                                    <span><i class="bi bi-pencil"></i></span> Ubah
+                                </button>
+                            </form>
+
+                            {{-- User Delete Button --}}
+                            <form action="{{ route('users.destroy', $user->id) }}" method="post"
                                 style="display:inline-block;"
                                 onsubmit="return confirm('Apakah anda yakin ingin menghapus data?');">
                                 @csrf

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Menambahkan Data Pengguna</title>
+    <title>Mengedit Data Pengguna</title>
     {{-- Bootstrap Import --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     {{-- Poppins Font CDN --}}
@@ -29,32 +29,36 @@
             <div class="fs-3 mb-3 mt-3">
                 <span><a class="text-secondary" onclick="history.back();">
                         <i class="bi bi-arrow-left-circle me-2 fs-4"></i></a></span>
-                Tambah Data User
+                Edit Data User
             </div>
             <hr class="text-black">
 
-            <form method="post" action="{{ route('users.store') }}">
+            <form method="post" action="{{ route('users.update', $user->id) }}">
                 @csrf
+                @method('PUT')
                 <div class="mb-3">
                     <label for="nameInput" class="form-label">Nama</label>
-                    <input name="name" type="text" class="form-control" id="nameInput" required>
+                    <input name="name" type="text" class="form-control" id="nameInput"
+                        value="{{ old('name', $user->name) }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control" id="emailInput" required>
+                    <input name="email" type="email" class="form-control" id="emailInput"
+                        value="{{ old('email', $user->email) }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="passwordInput" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+                    <input name="password" type="password" class="form-control" id="passwordInput"
+                        value="{{ old('password', $user->password) }}" required>
                 </div>
 
                 <div class="mb-5">
                     <label for="levelSelect" class="form-label">Pilih Level</label>
                     <select name="level" id="levelSelect" class="form-select" required>
-                        <option>Kepala</option>
-                        <option>Admin</option>
+                        <option value="Kepala" @if (old('level', $user->level) == 'Kepala') selected @endif>Kepala</option>
+                        <option value="Admin" @if (old('level', $user->level) == 'Admin') selected @endif>Admin</option>
                     </select>
                 </div>
 
