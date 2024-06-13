@@ -11,7 +11,7 @@
                     <a class="nav-link" aria-current="page" href="home">Gis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="users_data">Data User</a>
+                    <a class="nav-link" aria-current="page" href="users">Data User</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="marks_data">Data Penanda</a>
