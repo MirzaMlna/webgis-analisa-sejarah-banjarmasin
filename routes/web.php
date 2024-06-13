@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +16,8 @@ Route::get('home', function () {
 });
 Route::get('users_data', function () {
     return view('users/index', [
-        'title' => 'Data Pengguna'
+        'title' => 'Data Pengguna',
+        'users' => User::all()
     ]);
 });
 Route::get('marks_data', function () {
