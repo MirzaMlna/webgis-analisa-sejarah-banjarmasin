@@ -48,6 +48,7 @@
                     <label for="levelSelect" class="form-label">Pilih Level</label>
                     <select name="level" id="levelSelect" class="form-select" required>
                         <option>Kepala</option>
+                        <option>Super Admin</option>
                         <option>Admin</option>
                     </select>
                 </div>

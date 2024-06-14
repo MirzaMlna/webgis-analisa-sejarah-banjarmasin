@@ -4,6 +4,7 @@
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
+            <b>{{ Auth::user()->name }}</b> !
         </div>
     @endif
 

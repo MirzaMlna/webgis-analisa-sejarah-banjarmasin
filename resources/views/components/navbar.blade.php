@@ -11,13 +11,20 @@
                     <a class="nav-link" aria-current="page" href="home">Gis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="users">Data Pengguna</a>
+                    <a class="nav-link" aria-current="page" href="users">Data Akun</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="marks">Data Penanda</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" href="#">Keluar</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link fw-bold dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="userDropdown">
+                        <li><a onclick="return confirm('Apakah anda yakin ingin keluar akun?');" class="dropdown-item"
+                                href="{{ route('logout') }}">Keluar</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

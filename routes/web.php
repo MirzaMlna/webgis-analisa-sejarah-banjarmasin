@@ -16,3 +16,4 @@ Route::resource('marks', MarkController::class);
 
 Route::get('login-form', [LoginController::class, 'index'])->name('login-form');
 Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');

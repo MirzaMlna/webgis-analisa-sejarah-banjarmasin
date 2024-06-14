@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         return view('users.index', [
-            'title' => 'Data Pengguna',
+            'title' => 'Data Akun',
             'users' => User::all()
         ]);
     }
@@ -63,14 +63,14 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'required',
+            // 'password' => 'nullable|required',
             'level' => 'required|string',
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        // $user->password = Hash::make($request->password);
         $user->level = $request->level;
 
         $user->save();

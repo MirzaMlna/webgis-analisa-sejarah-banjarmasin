@@ -29,10 +29,16 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data)) {
-            return redirect()->route('home.index')->with('success', 'Selamat datang kembali !');
+            return redirect()->route('home.index')->with('success', 'Selamat datang kembali ');
         } else {
             return
                 redirect()->route('login-form')->with('failed', 'Akun salah atau tidak terdaftar. Silahkan coba lagi');
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login-form')->with('success', 'Berhasil keluar akun !');
     }
 }

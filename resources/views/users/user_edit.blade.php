@@ -40,24 +40,30 @@
                     <label for="emailInput" class="form-label">Email</label>
                     <input name="email" type="email" class="form-control" id="emailInput"
                         value="{{ old('email', $user->email) }}" required>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>Email sudah ada</strong>
+                        </span>
+                    @enderror
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="passwordInput" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="passwordInput"
                         value="{{ old('password', $user->password) }}" required>
-                </div>
+                </div> --}}
 
                 <div class="mb-5">
                     <label for="levelSelect" class="form-label">Pilih Level</label>
                     <select name="level" id="levelSelect" class="form-select" required>
                         <option value="Kepala" @if (old('level', $user->level) == 'Kepala') selected @endif>Kepala</option>
-                        <option value="Admin" @if (old('level', $user->level) == 'Admin') selected @endif>Admin</option>
+                        <option value="Admin" @if (old('level', $user->level) == 'Admin') selected @endif>Super Admin</option>
+                        <option value="Super Admin" @if (old('level', $user->level) == 'Super Admin') selected @endif>Admin</option>
                     </select>
                 </div>
 
 
-                <button type="submit" class="btn btn-primary w-100">Tambahkan</button>
+                <button type="submit" class="btn btn-primary w-100">Ubah</button>
             </form>
         </div>
     </div>

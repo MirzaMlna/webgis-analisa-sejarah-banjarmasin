@@ -39,6 +39,11 @@
                                 {{ session('failed') }}
                             </div>
                         @endif
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
                         <div class="mb-3">
                             <label for="emailInput" class="form-label fw-bold">Alamat Email</label>
