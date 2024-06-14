@@ -31,26 +31,39 @@
                     Silahkan masuk menggunakan akun anda!
                 </div>
                 <div class="m-3">
-                    <form>
+
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
+                        @if (session('failed'))
+                            <div class="alert alert-danger">
+                                {{ session('failed') }}
+                            </div>
+                        @endif
+
                         <div class="mb-3">
                             <label for="emailInput" class="form-label fw-bold">Alamat Email</label>
-                            <input type="email" class="form-control" id="emailInput" />
+                            <input name="email" type="email" class="form-control" id="emailInput" />
                         </div>
+                        @error('email')
+                            <div class="text-danger fs-6 mb-3">Email kosong atau salah!</div>
+                        @enderror
                         <div class="mb-3">
                             <label for="passwordInput" class="form-label fw-bold">Password</label>
-                            <input type="password" class="form-control" id="passwordInput" />
+                            <input name="password" type="password" class="form-control" id="passwordInput" />
+                            @error('password')
+                                <div class="text-danger fs-6 mb-3">Password kosong atau salah!</div>
+                            @enderror
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="showPassword" />
-                                <label class="form-check-label" for="showPassword">Tampilkan Password</label>
-                            </div>
-                            <a class="text-dark" href="#">Lupa Password?</a>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="showPassword" />
+                            <label class="form-check-label" for="showPassword">Tampilkan Password</label>
                         </div>
+
                         <button type="submit" class="btn btn-dark w-100 mb-3">
                             Masuk
                         </button>
                     </form>
+
                     <p class="text-center">
                         Atau masuk sebagai pengunjung
                         <a href="home">Klik Disini</a> !
