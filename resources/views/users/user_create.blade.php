@@ -40,6 +40,11 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="phoneInput" class="form-label">Nomor Telpon</label>
+                    <input name="phone" type="phone" class="form-control" id="exampleInputphone1" required>
+                </div>
+
+                <div class="mb-3">
                     <label for="passwordInput" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
                 </div>

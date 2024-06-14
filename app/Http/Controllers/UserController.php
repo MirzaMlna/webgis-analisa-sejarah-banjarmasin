@@ -32,7 +32,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required',
-            'password' => 'nullable',
+            'password' => 'required',
+            'phone' => 'required',
             'level' => 'required|string',
         ]);
 
@@ -40,6 +41,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone' => $request->phone,
             'level' => $request->level,
         ]);
         return redirect()->route('users.index')->with('success', 'Pengguna Berhasil Ditambahkan');
@@ -64,6 +66,7 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email,' . $id,
             // 'password' => 'nullable|required',
+            'phone' => 'required|string',
             'level' => 'required|string',
         ]);
 
@@ -71,6 +74,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         // $user->password = Hash::make($request->password);
+        $user->phone = $request->phone;
         $user->level = $request->level;
 
         $user->save();

@@ -19,7 +19,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link fw-bold dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }}
+                        {{ Auth::user()->name ?? '' }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="userDropdown">
                         <li><a onclick="return confirm('Apakah anda yakin ingin keluar akun?');" class="dropdown-item"

@@ -23,7 +23,7 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
                     <th scope="col">Level</th>
-                    <th scope="col">Dibuat Pada</th>
+                    <th scope="col">No.Telp</th>
                     <th class="text-center" scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -35,7 +35,7 @@
                         <td>{{ $user['name'] }}</td>
                         <td>{{ $user['email'] }}</td>
                         <td>{{ $user['level'] }}</td>
-                        <td>{{ $user['created_at']->format('D, d/m/Y') }}</td>
+                        <td>{{ $user['phone'] }}</td>
                         <td class="text-center">
 
                             {{-- User Edit Button --}}

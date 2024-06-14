@@ -40,11 +40,12 @@
                     <label for="emailInput" class="form-label">Email</label>
                     <input name="email" type="email" class="form-control" id="emailInput"
                         value="{{ old('email', $user->email) }}" required>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>Email sudah ada</strong>
-                        </span>
-                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="phoneInput" class="form-label">Nomor Telpon</label>
+                    <input name="phone" type="phone" class="form-control" id="phoneInput"
+                        value="{{ old('phone', $user->phone) }}" required>
                 </div>
 
                 {{-- <div class="mb-3">
