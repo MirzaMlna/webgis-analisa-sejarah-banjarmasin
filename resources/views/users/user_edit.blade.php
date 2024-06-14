@@ -58,8 +58,9 @@
                     <label for="levelSelect" class="form-label">Pilih Level</label>
                     <select name="level" id="levelSelect" class="form-select" required>
                         <option value="Kepala" @if (old('level', $user->level) == 'Kepala') selected @endif>Kepala</option>
-                        <option value="Admin" @if (old('level', $user->level) == 'Admin') selected @endif>Super Admin</option>
-                        <option value="Super Admin" @if (old('level', $user->level) == 'Super Admin') selected @endif>Admin</option>
+                        <option value="Super Admin" @if (old('level', $user->level) == 'Super Admin') selected @endif>Super Admin
+                        </option>
+                        <option value="Admin" @if (old('level', $user->level) == 'Admin') selected @endif>Admin</option>
                     </select>
                 </div>
 

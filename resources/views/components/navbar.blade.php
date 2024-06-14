@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-warning">
     <div class="container">
         <x-header>{{ $slot }}</x-header>
+
+        {{-- @if (Auth::user()->level === 'Kepala' || Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin') --}}
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,11 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="home">Gis</a>
+                    <a class="nav-link" aria-current="page" href="home">Peta</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="users">Data Akun</a>
-                </li>
+
+                {{-- Ditampilkan ketika level "Super Admin" atau "Kepala" --}}
+                @if (Auth::user()->level === 'Kepala' || Auth::user()->level === 'Super Admin')
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="users">Data Akun</a>
+                    </li>
+                @endif
+
                 <li class="nav-item">
                     <a class="nav-link" href="marks">Data Penanda</a>
                 </li>
@@ -28,5 +36,7 @@
                 </li>
             </ul>
         </div>
+
+        {{-- @endif --}}
     </div>
 </nav>
