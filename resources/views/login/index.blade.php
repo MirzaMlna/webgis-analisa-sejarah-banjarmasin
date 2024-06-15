@@ -68,11 +68,12 @@
                             Masuk
                         </button>
                     </form>
-
+                    {{-- Untuk Masuk Tanmpa Akun --}}
                     <p class="text-center">
-                        Atau masuk sebagai pengunjung
-                        <a href="home">Klik Disini</a> !
+                        Atau masuk sebagai Tamu
+                        <a href="{{ route('guestLogin') }}">Klik Disini</a> !
                     </p>
+
                 </div>
             </div>
         </div>

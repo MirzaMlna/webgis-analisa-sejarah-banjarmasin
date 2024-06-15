@@ -7,12 +7,21 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('login.index');
+    }
+
+    // Method Untuk Masuk Tanpa Akun
+    public function guestLogin()
+    {
+        $data = [
+            'email' => 'tamu@gmail.com',
+            'password' => 'tamu',
+        ];
+        if (Auth::attempt($data)) {
+            return redirect()->route('home.index')->with('success', 'Masuk sebagai ');
+        }
     }
 
     public function login(Request $request)
@@ -39,6 +48,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login-form')->with('success', 'Berhasil keluar akun !');
+        return redirect()->route('login-form')->with('success', 'Berhasil keluar !');
     }
 }

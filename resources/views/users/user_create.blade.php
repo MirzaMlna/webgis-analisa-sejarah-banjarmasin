@@ -55,6 +55,7 @@
                         <option>Kepala</option>
                         <option>Super Admin</option>
                         <option>Admin</option>
+                        <option>Tamu</option>
                     </select>
                 </div>
 
