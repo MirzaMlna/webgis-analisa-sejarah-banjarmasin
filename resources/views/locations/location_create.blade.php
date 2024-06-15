@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Menambahkan Data Pengguna</title>
+    <title>Menambahkan Data Lokasi</title>
     {{-- Bootstrap Import --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     {{-- Poppins Font CDN --}}
@@ -17,51 +17,51 @@
 </head>
 
 <body>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center m-5">
 
         <div class="col-md-6">
             <div class="fs-3 mb-3 mt-3">
                 <span><a class="text-secondary" onclick="history.back();">
                         <i class="bi bi-arrow-left-circle me-2 fs-4"></i></a></span>
-                Tambah Data User
+                Tambah Data Lokasi
             </div>
             <hr class="text-black">
 
-            <form method="post" action="{{ route('users.store') }}">
+            <form method="post" action="">
                 @csrf
                 <div class="mb-3">
-                    <label for="nameInput" class="form-label">Nama</label>
-                    <input name="name" type="text" class="form-control" id="nameInput" required>
+                    <label for="nameInput" class="form-label">Nama Lokasi</label>
+                    <input type="text" class="form-control" id="" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control" id="emailInput" required>
+                    <label for="descriptionInput">Deskripsi</label>
+                    <textarea class="form-control" id="descriptionInput"></textarea>
                 </div>
 
                 <div class="mb-3">
-                    <label for="phoneInput" class="form-label">Nomor Telpon</label>
-                    <input name="phone" type="number" class="form-control" id="exampleInputphone1" required>
-                </div>
+                    <label for="coordinatesInput" class="form-label">Kordinat <br> <span
+                            class="fst-italic text-secondary">Pilih lokasi
+                            di
+                            samping</span></label>
 
-                <div class="mb-3">
-                    <label for="passwordInput" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+                    <input type="text" class="form-control" id="coordinatesInput" readonly required>
                 </div>
 
                 <div class="mb-5">
-                    <label for="levelSelect" class="form-label">Pilih Level</label>
-                    <select name="level" id="levelSelect" class="form-select" required>
-                        <option>Kepala</option>
-                        <option>Super Admin</option>
-                        <option>Admin</option>
-                        <option>Tamu</option>
-                    </select>
+                    <label for="imageInput" class="form-label">Gambar</label>
+                    <input type="file" class="form-control" id="imageInput" required>
                 </div>
 
 
                 <button type="submit" class="btn btn-primary w-100">Tambahkan</button>
             </form>
+        </div>
+
+        <div class="col-md-6 bg-secondary">
+            <div class="container">
+                Kena map disini anjay
+            </div>
         </div>
     </div>
 

@@ -48,10 +48,11 @@
             <div class="display-6 text-light text-center">
                 Analisis Sejarah Kota Banjarmasin
             </div>
-
-            <div class="mt-3 btn btn-lg btn-warning fw-bold ms-2">
-                Masuk Ke Webgis
-            </div>
+            <a href="login-form">
+                <div class="mt-3 btn btn-lg btn-warning fw-bold ms-2">
+                    Masuk Ke Webgis
+                </div>
+            </a>
         </section>
         <section id="explanation" class="bg-dark p-2 p-lg-5">
             <div class="fs-1 text-light fw-bold text-center mt-3 mb-5">

@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         return view('users.index', [
             'title' => 'Data Akun',
-            'users' => User::all()
+            'users' => User::orderedByLevel()->get(),
         ]);
     }
 
@@ -28,7 +28,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => 'required|string',
             'email' => 'required',

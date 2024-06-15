@@ -22,4 +22,10 @@ class User extends Authenticatable
         'phone',
         'level',
     ];
+
+    public function scopeOrderedByLevel($query)
+    {
+        $order = ['kepala', 'super admin', 'admin', 'tamu'];
+        $query->orderByRaw("FIELD(level, '" . implode("','", $order) . "')");
+    }
 }

@@ -30,7 +30,7 @@
                     @endif
 
                     <li class="nav-item">
-                        <a class="nav-link" href="marks">Data Penanda</a>
+                        <a class="nav-link" href="locations">Data Lokasi</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link fw-bold dropdown-toggle" href="#" id="userDropdown" role="button"

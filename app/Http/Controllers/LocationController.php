@@ -4,19 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MarkController extends Controller
+class LocationController extends Controller
 {
 
     public function index()
     {
-        return view('marks/index', [
+        return view('locations/index', [
             'title' => 'Data Penanda'
         ]);
     }
 
     public function create()
     {
-        //
+        return view('locations.location_create');
     }
 
     public function store(Request $request)

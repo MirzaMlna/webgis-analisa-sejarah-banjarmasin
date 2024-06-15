@@ -33,8 +33,8 @@
                     <th class="text-center" scope="col">#</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Level</th>
                     <th scope="col">No.Telp</th>
+                    <th scope="col">Level</th>
 
                     {{-- Kolom aksi muncul ketika level "Super Admin" --}}
                     @if (Auth::user()->level === 'Super Admin')
@@ -49,8 +49,8 @@
                         <td class="text-center">{{ $no++ }}</td>
                         <td>{{ $user['name'] }}</td>
                         <td>{{ $user['email'] }}</td>
-                        <td>{{ $user['level'] }}</td>
                         <td>{{ $user['phone'] }}</td>
+                        <td>{{ $user['level'] }}</td>
 
                         {{-- Tombol edit dan hapus muncul ketika level "Super Admin" --}}
                         @if (Auth::user()->level === 'Super Admin')
