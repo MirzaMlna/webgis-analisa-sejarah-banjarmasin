@@ -23,6 +23,7 @@ class User extends Authenticatable
         'level',
     ];
 
+    // Untuk Mengurutkan Pada Tabel
     public function scopeOrderedByLevel($query)
     {
         $order = ['kepala', 'super admin', 'admin', 'tamu'];

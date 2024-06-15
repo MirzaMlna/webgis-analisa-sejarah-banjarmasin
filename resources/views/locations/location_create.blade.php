@@ -27,16 +27,16 @@
             </div>
             <hr class="text-black">
 
-            <form method="post" action="">
+            <form method="post" action="{{ route('locations.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="nameInput" class="form-label">Nama Lokasi</label>
-                    <input type="text" class="form-control" id="" required>
+                    <input name="location_name" type="text" class="form-control" id="nameInput" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="descriptionInput">Deskripsi</label>
-                    <textarea class="form-control" id="descriptionInput"></textarea>
+                    <textarea name="description" class="form-control" id="descriptionInput"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -44,13 +44,12 @@
                             class="fst-italic text-secondary">Pilih lokasi
                             di
                             samping</span></label>
-
-                    <input type="text" class="form-control" id="coordinatesInput" readonly required>
+                    <input name="coordinates" type="text" class="form-control" id="coordinatesInput" required>
                 </div>
 
                 <div class="mb-5">
                     <label for="imageInput" class="form-label">Gambar</label>
-                    <input type="file" class="form-control" id="imageInput" required>
+                    <input name="image" type="file" class="form-control" id="imageInput" required>
                 </div>
 
 
