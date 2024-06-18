@@ -48,13 +48,34 @@ class LocationController extends Controller
 
     public function edit(string $id)
     {
-        //
+        $location = Location::findOrFail($id);
+        return view('locations.location_edit', compact('location'));
     }
 
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'location_name' => 'required|string',
+            'description' => 'required|string|unique:locations,description,' . $id,
+            'coordinates' => 'required|string',
+            'image' => 'nullable|string',
+        ]);
+
+        $location = Location::findOrFail($id);
+        $location->location_name = $request->location_name;
+        $location->description = $request->description;
+        $location->coordinates = $request->coordinates;
+
+        // Update the image only if a new image is provided
+        if ($request->image) {
+            $location->image = $request->image;
+        }
+
+        $location->save();
+
+        return redirect()->route('locations.index')->with('success', 'Lokasi Berhasil Diubah');
     }
+
 
     public function destroy(string $id)
     {

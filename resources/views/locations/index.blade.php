@@ -2,6 +2,13 @@
 
     <x-slot:title>{{ $title }}</x-slot:title>
 
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="px-5 pt-3">
         <div class="d-flex justify-content-end mb-3">
             {{-- Tombol tambah data muncul ketika level "Super Admin" --}}

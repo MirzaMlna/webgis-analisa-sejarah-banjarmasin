@@ -48,12 +48,6 @@
                         value="{{ old('phone', $user->phone) }}" required>
                 </div>
 
-                {{-- <div class="mb-3">
-                    <label for="passwordInput" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="passwordInput"
-                        value="{{ old('password', $user->password) }}" required>
-                </div> --}}
-
                 <div class="mb-5">
                     <label for="levelSelect" class="form-label">Pilih Level</label>
                     <select name="level" id="levelSelect" class="form-select" required>

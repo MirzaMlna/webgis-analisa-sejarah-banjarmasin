@@ -14,6 +14,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
+    {{-- Leaflet CSS CDN --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 550px;
+            /* Set a height for the map */
+        }
+    </style>
 </head>
 
 <body>
@@ -41,29 +49,59 @@
 
                 <div class="mb-3">
                     <label for="coordinatesInput" class="form-label">Kordinat <br> <span
-                            class="fst-italic text-secondary">Pilih lokasi
+                            class="fst-italic text-secondary">Pilih kordinat
                             di
                             samping</span></label>
                     <input name="coordinates" type="text" class="form-control" id="coordinatesInput" required>
                 </div>
+
 
                 <div class="mb-5">
                     <label for="imageInput" class="form-label">Gambar</label>
                     <input name="image" type="file" class="form-control" id="imageInput" required>
                 </div>
 
-
                 <button type="submit" class="btn btn-primary w-100">Tambahkan</button>
             </form>
         </div>
 
-        <div class="col-md-6 bg-secondary">
-            <div class="container">
-                Kena map disini anjay
-            </div>
+        <div class="col-md-6">
+            <div id="map"></div>
         </div>
     </div>
 
+    {{-- Leaflet JS CDN --}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([-3.316694, 114.590111], 13); // Centered on Banjarmasin
+
+        // Add a tile layer (the base map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Fetch and load GeoJSON data
+        fetch('/geojson/banjarmasin.geojson')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    onEachFeature: function(feature, layer) {
+                        if (feature.properties && feature.properties.popupContent) {
+                            layer.bindPopup(feature.properties.popupContent);
+                        }
+                    }
+                }).addTo(map);
+            })
+            .catch(error => console.error('Error loading the GeoJSON data:', error));
+
+        // Add click event listener to the map
+        map.on('click', function(e) {
+            var latlng = e.latlng;
+            var coordinatesInput = document.getElementById('coordinatesInput');
+            coordinatesInput.value = latlng.lat + ', ' + latlng.lng;
+        });
+    </script>
 </body>
 
 </html>
