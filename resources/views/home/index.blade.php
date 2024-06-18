@@ -9,7 +9,6 @@
         </div>
     @endif
 
-
-    Ceritanya Kena Ada Maps Disini Anjay
+    <div id="map"></div>
 
 </x-layout>

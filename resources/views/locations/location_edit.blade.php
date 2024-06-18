@@ -14,6 +14,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
+    {{-- Leaflet CSS CDN --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 550px;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +54,7 @@
                             di
                             samping</span></label>
                     <input name="coordinates" value="{{ old('coordinates', $location->coordinates) }}" type="text"
-                        class="form-control" id="coordinatesInput" required>
+                        class="form-control" id="coordinatesInput" readonly required>
                 </div>
 
                 <div class="mb-5">
@@ -58,12 +65,14 @@
             </form>
         </div>
 
-        <div class="col-md-6 bg-secondary">
-            <div class="container">
-                Kena map disini anjay
-            </div>
+        <div class="col-md-6">
+            <div id="map"></div>
         </div>
     </div>
+
+    {{-- Leaflet JS CDN --}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/js/map.js"></script>
 
 </body>
 
