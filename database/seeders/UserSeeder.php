@@ -22,5 +22,12 @@ class UserSeeder extends Seeder
             'phone' => '085814313224',
             'level' => 'Super Admin',
         ]);
+        User::create([
+            'name' => 'Tamu',
+            'email' => 'tamu@gmail.com',
+            'password' => Hash::make('tamu'),
+            'phone' => '-',
+            'level' => 'Guest',
+        ]);
     }
 }
