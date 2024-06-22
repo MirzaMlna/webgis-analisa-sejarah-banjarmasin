@@ -19,7 +19,7 @@ fetch("/geojson/banjarmasin.geojson")
             },
         }).addTo(map);
     })
-    .catch((error) => console.error("Error loading the GeoJSON data:", error));
+    .catch((error) => console.error("Gagal Memuat Peta Banjarmasin", error));
 
 // Add click event listener to the map
 map.on("click", function (e) {
@@ -27,3 +27,27 @@ map.on("click", function (e) {
     var coordinatesInput = document.getElementById("coordinatesInput");
     coordinatesInput.value = latlng.lat + ", " + latlng.lng;
 });
+
+const icon = L.divIcon({
+    html: `
+    <div>
+      <svg width="25px" height="41px" viewBox="0 0 32 52" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16,1 C7.7146,1 1,7.65636364 1,15.8648485 C1,24.0760606 16,51 16,51 C16,51 31,24.0760606 31,15.8648485 C31,7.65636364 24.2815,1 16,1 L16,1 Z"></path>
+      </svg>
+      <i id='markIcon' class="bi bi-circle-fill"></i>
+    </div>`,
+    iconSize: [25, 41],
+    iconAnchor: [25 / 2, 41],
+    className: "locationsMarkIcon",
+});
+// Ambil koordinat dari backend
+fetch("/api/coordinates")
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach((location) => {
+            var marker = L.marker([location.latitude, location.longitude], {
+                icon: icon,
+            }).addTo(map);
+        });
+    })
+    .catch((error) => console.error("Gagal Memuat Tanda Lokasi", error));

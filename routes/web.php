@@ -19,3 +19,5 @@ Route::get('login-form', [LoginController::class, 'index'])->name('login-form');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('guest-login', [LoginController::class, 'guestLogin'])->name('guestLogin');
+// routes/web.php
+Route::get('/api/coordinates', [LocationController::class, 'getCoordinates']);

@@ -8,6 +8,20 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
 
+    public function getCoordinates()
+    {
+        $locationCoordinates = Location::all(['coordinates']);
+
+        // Pisahkan latitude dan longitude
+        $coordinates = $locationCoordinates->map(function ($location) {
+            list($latitude, $longitude) = explode(',', $location->coordinates);
+            return [
+                'latitude' => (float) $latitude,
+                'longitude' => (float) $longitude
+            ];
+        });
+        return response()->json($coordinates);
+    }
     public function index()
     {
         return view('locations/index', [
