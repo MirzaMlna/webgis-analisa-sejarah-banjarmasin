@@ -11,10 +11,16 @@
 
     <div class="px-5 pt-3">
         <div class="d-flex justify-content-end mb-3">
-            {{-- Tombol tambah data muncul ketika level "Super Admin" --}}
-            @if (Auth::user()->level === 'Super Admin')
+            {{-- Tombol tambah data muncul ketika level "Super Admin" Dan Admin --}}
+            @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
                 <a href="{{ route('locations.create') }}">
                     <div class="btn btn-success"> <i class="bi bi-plus-circle"></i> Tambah Data</div>
+                </a>
+            @endif
+            {{-- Tombol cetak muncul ketika level "Kepala" --}}
+            @if (Auth::user()->level === 'Kepala')
+                <a href="#">
+                    <div class="btn btn-success"> <i class="bi bi-printer"></i> Cetak</div>
                 </a>
             @endif
         </div>
@@ -26,7 +32,9 @@
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Kordinat</th>
                     <th scope="col">Gambar</th>
-                    <th class="text-center" scope="col">Aksi</th>
+                    @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
+                        <th class="text-center" scope="col">Aksi</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -41,8 +49,8 @@
                             <img src="{{ asset('storage/' . $location->image) }}" alt="Gambar {{ $location->lokasi }}"
                                 style="width: 100px">
                         </td>
-                        {{-- Tombol lihat, edit dan hapus muncul ketika level "Super Admin" --}}
-                        @if (Auth::user()->level === 'Super Admin')
+                        {{-- Tombol lihat, edit dan hapus muncul ketika level "Super Admin" atau Admin --}}
+                        @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
                             <td class="text-center">
 
                                 {{-- Location View Button --}}

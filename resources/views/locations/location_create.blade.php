@@ -51,7 +51,8 @@
                             class="fst-italic text-secondary">Pilih kordinat
                             di
                             samping</span></label>
-                    <input name="coordinates" type="text" class="form-control" id="coordinatesInput" required>
+                    <input name="coordinates" type="text" class="form-control" id="coordinatesInput" readonly
+                        required>
                 </div>
 
 
