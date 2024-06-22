@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="descriptionInput">Deskripsi</label>
-                    <textarea name="description" class="form-control" id="descriptionInput">{{ old('description', $location->description) }}</textarea>
+                    <label for="historyInput">Sejarah</label>
+                    <textarea name="history" class="form-control" id="historyInput">{{ old('history', $location->history) }}</textarea>
                 </div>
 
                 <div class="mb-3">

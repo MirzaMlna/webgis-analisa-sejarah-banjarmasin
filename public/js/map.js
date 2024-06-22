@@ -57,8 +57,8 @@ fetch("/api/coordinates")
                 document.getElementById(
                     "modalImage"
                 ).src = `storage/${location.image}`;
-                document.getElementById("modalDescription").textContent =
-                    location.description;
+                document.getElementById("modalHistory").textContent =
+                    location.history;
                 document.getElementById(
                     "modalCoordinates"
                 ).textContent = `${location.latitude}, ${location.longitude}`;

@@ -20,7 +20,7 @@ class LocationController extends Controller
                 'location_name' => $location->location_name,
                 'latitude' => (float) $latitude,
                 'longitude' => (float) $longitude,
-                'description' => $location->description,
+                'history' => $location->history,
                 'image' => $location->image,
             ];
         });
@@ -48,14 +48,14 @@ class LocationController extends Controller
 
         $request->validate([
             'location_name' => 'required',
-            'description' => 'required',
+            'history' => 'required',
             'coordinates' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         Location::create([
             'location_name' => $request->location_name,
-            'description' => $request->description,
+            'history' => $request->history,
             'coordinates' => $request->coordinates,
             'image' => $path,
         ]);
@@ -77,14 +77,14 @@ class LocationController extends Controller
     {
         $request->validate([
             'location_name' => 'required|string',
-            'description' => 'required|string|unique:locations,description,' . $id,
+            'history' => 'required|string|unique:locations,history,' . $id,
             'coordinates' => 'required|string',
             'image' => 'nullable|string',
         ]);
 
         $location = Location::findOrFail($id);
         $location->location_name = $request->location_name;
-        $location->description = $request->description;
+        $location->history = $request->history;
         $location->coordinates = $request->coordinates;
 
         // Update the image only if a new image is provided

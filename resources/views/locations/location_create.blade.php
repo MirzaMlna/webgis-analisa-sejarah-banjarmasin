@@ -42,8 +42,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="descriptionInput">Deskripsi</label>
-                    <textarea name="description" class="form-control" id="descriptionInput"></textarea>
+                    <label for="historyInput">Sejarah</label>
+                    <textarea name="history" class="form-control" id="historyInput"></textarea>
                 </div>
 
                 <div class="mb-3">

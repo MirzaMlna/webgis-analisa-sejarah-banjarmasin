@@ -18,7 +18,7 @@
                     </div>
 
                     <p><b>Koordinat : </b> <span id="modalCoordinates"></span></p>
-                    <p><b>Sejarah : </b> <span id="modalDescription"></span></p>
+                    <p><b>Sejarah : </b> <span id="modalHistory"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="modalLocationName"></h2>
-                    <p id="modalDescription"></p>
+                    <p id="modalHistory"></p>
                     <p id="modalCoordinates"></p>
                     <img id="modalImage" src="" class="img-fluid" alt="Location Image">
                 </div>

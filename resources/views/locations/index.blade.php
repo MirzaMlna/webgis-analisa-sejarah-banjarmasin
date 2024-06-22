@@ -29,7 +29,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Lokasi</th>
-                    <th scope="col">Deskripsi</th>
+                    <th scope="col">Sejarah</th>
                     <th scope="col">Kordinat</th>
                     <th scope="col">Gambar</th>
                     @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
@@ -43,7 +43,7 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $location->location_name }}</td>
-                        <td>{{ Str::limit($location->description, 20) }}</td>
+                        <td>{{ Str::limit($location->history, 20) }}</td>
                         <td>{{ Str::limit($location->coordinates, 20) }}</td>
                         <td>
                             <img src="{{ asset('storage/' . $location->image) }}" alt="Gambar {{ $location->lokasi }}"
@@ -71,11 +71,15 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body text-start">
-                                                <img class="mb-3" src="{{ asset('storage/' . $location->image) }}"
-                                                    alt="Gambar {{ $location->lokasi }}" style="width: 100%">
+                                                <div class="container mb-3" style="width: 100%; height: 250px">
+                                                    <img class="img-fluid"
+                                                        src="{{ asset('storage/' . $location->image) }}"
+                                                        alt="Gambar {{ $location->lokasi }}"
+                                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
                                                 <p><b>Lokasi : </b> {{ $location->location_name }}</p>
-                                                <p><b>Deskripsi : </b> {{ $location->description }}</p>
                                                 <p><b>Koordinat : </b> {{ $location->coordinates }}</p>
+                                                <p><b>Sejarah : </b> {{ $location->history }}</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
