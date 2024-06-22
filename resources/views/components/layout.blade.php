@@ -15,13 +15,15 @@
         rel="stylesheet" />
     {{-- Leaflet CSS CDN --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         #map {
             height: 100vh;
         }
     </style>
+
 </head>
 
 <body>

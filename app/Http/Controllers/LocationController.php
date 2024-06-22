@@ -8,20 +8,27 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
 
+    // Method Ini Gasan Mengambil Data Lokasi Dan Mengubah Menjadi Data JSON
     public function getCoordinates()
     {
-        $locationCoordinates = Location::all(['coordinates']);
+        $locations = Location::all();
 
-        // Pisahkan latitude dan longitude
-        $coordinates = $locationCoordinates->map(function ($location) {
+        $coordinates = $locations->map(function ($location) {
             list($latitude, $longitude) = explode(',', $location->coordinates);
             return [
+                'id' => $location->id,
+                'location_name' => $location->location_name,
                 'latitude' => (float) $latitude,
-                'longitude' => (float) $longitude
+                'longitude' => (float) $longitude,
+                'description' => $location->description,
+                'image' => $location->image,
             ];
         });
+
         return response()->json($coordinates);
     }
+
+
     public function index()
     {
         return view('locations/index', [

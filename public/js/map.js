@@ -48,6 +48,24 @@ fetch("/api/coordinates")
             var marker = L.marker([location.latitude, location.longitude], {
                 icon: icon,
             }).addTo(map);
+
+            // Event listener untuk menampilkan modal saat marker diklik
+            marker.on("click", function () {
+                // Isi modal dengan informasi dari location
+                document.getElementById("modalLocationName").textContent =
+                    location.location_name;
+                document.getElementById(
+                    "modalImage"
+                ).src = `storage/${location.image}`;
+                document.getElementById("modalDescription").textContent =
+                    location.description;
+                document.getElementById(
+                    "modalCoordinates"
+                ).textContent = `${location.latitude}, ${location.longitude}`;
+
+                // Tampilkan modal menggunakan jQuery (pastikan jQuery sudah dimuat sebelum kode ini)
+                $("#locationModal").modal("show");
+            });
         });
     })
     .catch((error) => console.error("Gagal Memuat Tanda Lokasi", error));
