@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
+    public function print()
+    {
+        return view('users.user_print', [
+            'users' => User::orderedByLevel()->get(),
+        ]);
+    }
     public function index()
     {
         return view('users.index', [

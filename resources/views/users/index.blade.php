@@ -22,7 +22,7 @@
             @endif
             {{-- Tombol cetak muncul ketika level "Super Admin" --}}
             @if (Auth::user()->level === 'Kepala')
-                <a href="#">
+                <a href="{{ route('users.print') }}">
                     <div class="btn btn-success"> <i class="bi bi-printer"></i> Cetak</div>
                 </a>
             @endif

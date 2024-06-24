@@ -19,5 +19,9 @@ Route::get('login-form', [LoginController::class, 'index'])->name('login-form');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('guest-login', [LoginController::class, 'guestLogin'])->name('guestLogin');
-// routes/web.php
+
+// Untuk Mengambil Kordinat
 Route::get('/api/coordinates', [LocationController::class, 'getCoordinates']);
+
+//Untuk Cetak User
+Route::get('users.print', [UserController::class, 'print'])->name('users.print');
