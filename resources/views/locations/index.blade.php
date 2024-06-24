@@ -51,7 +51,7 @@
             @endif
             {{-- Tombol cetak muncul ketika level "Kepala" --}}
             @if (Auth::user()->level === 'Kepala')
-                <a href="#">
+                <a href="{{ route('locations.print') }}">
                     <div class="btn btn-success"> <i class="bi bi-printer"></i> Cetak</div>
                 </a>
             @endif

@@ -25,3 +25,5 @@ Route::get('/api/coordinates', [LocationController::class, 'getCoordinates']);
 
 //Untuk Cetak User
 Route::get('users.print', [UserController::class, 'print'])->name('users.print');
+//Untuk Cetak Lokasi
+Route::get('locations.print', [LocationController::class, 'print'])->name('locations.print');

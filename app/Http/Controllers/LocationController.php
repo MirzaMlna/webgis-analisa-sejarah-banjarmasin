@@ -28,11 +28,16 @@ class LocationController extends Controller
         return response()->json($coordinates);
     }
 
-
+    public function print()
+    {
+        return view('locations/location_print', [
+            'locations' => Location::all(),
+        ]);
+    }
     public function index()
     {
         return view('locations/index', [
-            'title' => 'Data Penanda',
+            'title' => 'Data Lokasi',
             'locations' => Location::all(),
         ]);
     }

@@ -30,7 +30,7 @@
             <div class="fs-3 mb-3 mt-3">
                 <span><a class="text-secondary" onclick="history.back();">
                         <i class="bi bi-arrow-left-circle me-2 fs-4"></i></a></span>
-                Tambah Data Lokasi
+                Ubah Data Lokasi
             </div>
             <hr class="text-black">
 
