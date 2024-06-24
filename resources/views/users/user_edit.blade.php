@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mengedit Data Pengguna</title>
+    <title>Mengubah Data Akun</title>
     {{-- Bootstrap Import --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     {{-- Poppins Font CDN --}}
@@ -23,7 +23,7 @@
             <div class="fs-3 mb-3 mt-3">
                 <span><a class="text-secondary" onclick="history.back();">
                         <i class="bi bi-arrow-left-circle me-2 fs-4"></i></a></span>
-                Edit Data User
+                Ubah Data Akun
             </div>
             <hr class="text-black">
 
