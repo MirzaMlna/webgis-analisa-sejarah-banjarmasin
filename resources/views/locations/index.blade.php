@@ -25,7 +25,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body text-start">
+                            <div class="modal-body text-start" style="max-height: 70vh; overflow-y: auto;">
                                 <div class="container mb-3" style="width: 100%; height: 250px">
                                     <img class="img-fluid" src="{{ asset('storage/' . $location->image) }}"
                                         alt="Gambar {{ $location->lokasi }}"
