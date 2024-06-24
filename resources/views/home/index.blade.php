@@ -2,8 +2,8 @@
 
 
     <!-- Location Detail Modal -->
-    <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel"
-        aria-hidden="true">
+    <div class="modal modal-dialog modal-xl fade" id="locationModal" tabindex="-1" role="dialog"
+        aria-labelledby="locationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-warning">
@@ -12,7 +12,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-start">
-                    <div class="container mb-3" style="width: 100%; height: 200px;">
+                    <div class="container mb-3" style="width: 50%; height: 300px;">
                         <img id="modalImage" src="" class="img-fluid" alt="Location Image"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
