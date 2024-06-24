@@ -64,9 +64,9 @@
                     <th scope="col">Sejarah</th>
                     <th scope="col">Kordinat</th>
                     <th scope="col">Gambar</th>
-                    @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
-                        <th class="text-center" scope="col">Aksi</th>
-                    @endif
+
+                    <th class="text-center" scope="col">Aksi</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -81,24 +81,20 @@
                             <img src="{{ asset('storage/' . $location->image) }}" alt="Gambar {{ $location->lokasi }}"
                                 style="width: 100px">
                         </td>
-                        {{-- Tombol lihat, edit dan hapus muncul ketika level "Super Admin" atau Admin --}}
-                        @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
-                            <td class="text-center">
+                        <td class="text-center">
+                            {{-- Location View Button --}}
+                            <button type="button" data-bs-toggle="modal" class="btn btn-sm btn-info me-2"
+                                data-bs-target="#{{ $location->id }}">
+                                <span><i class="bi bi-eye"></i></span> Lihat
+                            </button>
 
-                                {{-- Location View Button --}}
-                                <button type="button" data-bs-toggle="modal" class="btn btn-sm btn-info me-2"
-                                    data-bs-target="#{{ $location->id }}">
-                                    <span><i class="bi bi-eye"></i></span> Lihat
-                                </button>
-
-
-
+                            {{-- Tombol Edit dan Hapus muncul ketika level "Super Admin" atau Admin --}}
+                            @if (Auth::user()->level === 'Super Admin' || Auth::user()->level === 'Admin')
                                 {{-- Location Edit Button --}}
                                 <a href="{{ route('locations.edit', $location->id) }}"
                                     class="btn btn-sm btn-warning me-2">
                                     <span><i class="bi bi-pencil"></i></span> Ubah
                                 </a>
-
                                 {{-- Location Delete Button --}}
                                 <form action="{{ route('locations.destroy', $location->id) }}" method="post"
                                     style="display:inline-block;"
@@ -109,8 +105,8 @@
                                         <span><i class="bi bi-trash3"></i></span> Hapus
                                     </button>
                                 </form>
-                            </td>
-                        @endif
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

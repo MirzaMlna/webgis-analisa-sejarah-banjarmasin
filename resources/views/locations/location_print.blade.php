@@ -17,6 +17,7 @@
 </head>
 
 <body class="m-5">
+    <div class="fs-3 mb-5">Data Lokasi</div>
     <table class="table">
         <thead>
             <tr>
