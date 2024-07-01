@@ -2,10 +2,11 @@
 var map = L.map("map").setView([-3.316694, 114.590111], 13); // Centered on Banjarmasin
 
 // Add a tile layer (the base map)
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+L.tileLayer("http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", {
+    maxZoom: 20,
+    subdomains: ["mt0", "mt1", "mt2", "mt3"],
 }).addTo(map);
+2;
 
 // Fetch and load GeoJSON data
 fetch("/geojson/banjarmasin.geojson")
