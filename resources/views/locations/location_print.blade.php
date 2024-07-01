@@ -39,6 +39,19 @@
             @endforeach
         </tbody>
     </table>
+    <div class="row mt-5">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="text-start">
+                {{ auth()->user()->level }}
+                <br><br><br>
+                <p>
+                    {{ auth()->user()->name }}
+                </p>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

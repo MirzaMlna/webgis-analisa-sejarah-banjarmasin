@@ -24,7 +24,6 @@ class LocationController extends Controller
                 'image' => $location->image,
             ];
         });
-
         return response()->json($coordinates);
     }
 
